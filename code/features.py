@@ -9,3 +9,4 @@ class Features:
         self.reliability = 0
         self.weights = 0
         self.distance = dict()
+        self.category_order = dict()

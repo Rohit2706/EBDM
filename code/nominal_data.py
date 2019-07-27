@@ -1,4 +1,4 @@
-def read_norm(data):
+def read_nom(data):
     try:
         nominal_categories = pd.read_csv(data,header=None,index_col=0)
     except ImportError:
@@ -14,6 +14,7 @@ def read_norm(data):
         
         for _index, _name in enumerate(cat_names):
             feat_instance.categories[_name] = Categories(_name, _index)
+            feat_instance.category_order[_index] = _name
            
         features[feat] = feat_instance
         

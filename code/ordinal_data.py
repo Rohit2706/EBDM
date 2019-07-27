@@ -14,6 +14,7 @@ def read_ord(data):
         
         for _index, _name in enumerate(cat_names):
             feat_instance.categories[_name] = Categories(_name, _index)
+            feat_instance.category_order[_index] = _name
            
         features[feat] = feat_instance
         

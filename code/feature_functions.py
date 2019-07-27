@@ -53,7 +53,7 @@ def total_reliability(features):
     return total_rel
 
 def weights(features, total_reliability):
-    for feat in features.values():
-        feat.weights = feat.reliability/ total_reliability
+    for feat in features:
+        features[feat].weight = features[feat].reliability/ total_reliability
 
     return features

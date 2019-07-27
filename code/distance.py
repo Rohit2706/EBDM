@@ -1,28 +1,58 @@
-# for each individual
-def distance_matrix(df, features):
-    dist_outer = list()
-    for index1 in df.index:
-        dist_inner = list()
-        for index2 in df.index:
-            if(index1 == index2):
-                distance.append(0)
-            else:
-                for feat in df.columns:
-                    dist_val = 0
-                    cat1 = features[feat].categories[df.loc[index1, feat]]
-                    cat2 = features[feat].categories[df.loc[index2, feat]]
-                    if(features[f].feat_type == 'nominal'):
-                        dist_val = features[feat].weights * (cat1.entropy + ca2.entropy)
-                    else:
-                        dist_val
+# calculating distances between each category of an attribute
 
-# for each category
-
-def distance(features):
-    for feat in features:
-        for cat1 in features[feat].categories.values():
-            dist_inner = dict()
-            for cat2 in features[feat].categories.values():
-                if(cat1 == cat2):
-                    dist_inner[cat2] = 0
+def distance_between_categories(features):
     
+    for feat in features:
+        
+        for i in features[feat].category_order.keys():
+            
+            features[feat].distances[features[feat].category_order[i]] = dict()
+
+    for feat in features:
+        
+        for i in features[feat].category_order.keys():
+
+            features[feat].distances[features[feat].category_order[i]][features[feat].category_order[i]] = 0               
+
+            if (features[feat].feat_type == 'ordinal'):
+                
+                for j in range(i+1, features[feat].num_cat):
+
+                    prev = features[feat].distances[features[feat].category_order[i]][features[feat].category_order[j-1]]
+                    curr = prev + (features[feat].weight)*(features[feat].categories[features[feat].category_order[j]].entropy)
+                    features[feat].distances[features[feat].category_order[i]][features[feat].category_order[j]] = curr
+                    features[feat].distances[features[feat].category_order[j]][features[feat].category_order[i]] = curr
+            else:
+                
+                for j in range(i+1, features[feat].num_cat):
+                    
+                    curr = (features[feat].weight)*(features[feat].categories[features[feat].category_order[j]].entropy + features[feat].categories[features[feat].category_order[i]].entropy) 
+                    features[feat].distances[features[feat].category_order[i]][features[feat].category_order[j]] = curr 
+                    features[feat].distances[features[feat].category_order[j]][features[feat].category_order[i]] = curr
+                
+    
+    return features
+    
+
+def distance_between_individuals(data, features):
+    
+    dist_mat = []
+    
+    for index1 in data.index:
+        
+        dist_temp = []
+        for index2 in data.index: 
+            
+            dist = 0
+            for col in data.columns:     
+                
+                if (type(data.loc[index1,col]) == str and type(data.loc[index2,col]) == str):
+                    dist += (features[col].distances[data.loc[index1,col]][data.loc[index2,col]])**2
+            
+            dist_temp.append(math.sqrt(dist))
+        
+        dist_mat.append(dist_temp)
+            
+    dist_mat = pd.DataFrame(dist_mat)    
+    
+    return dist_mat
