@@ -5,4 +5,4 @@ def read_norm(_data, _header, _index ):
         else:
             ordinal_categories = pd.read_csv(_data,header=_header,index_col=0)
     except ImportError:
-        print('Error Importing Ordinal Data')
+        print('Error Importing Nominal Data')
