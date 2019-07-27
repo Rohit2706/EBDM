@@ -44,3 +44,16 @@ def reliability(features):
             Logging.log_exception(error)
 
     return features
+
+def total_reliability(features):
+    total_rel = 0
+    for feat in features.values():
+        total_rel = total_rel + feat.reliability
+
+    return total_rel
+
+def weights(features, total_reliability):
+    for feat in features.values():
+        feat.weights = feat.reliability/ total_reliability
+
+    return features
