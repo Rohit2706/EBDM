@@ -8,3 +8,4 @@ class Features:
         self.std_entropy = 0
         self.reliability = 0
         self.weights = 0
+        self.distance = dict()
