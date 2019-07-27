@@ -3,7 +3,6 @@ def read_norm(data):
         nominal_categories = pd.read_csv(data,header=None,index_col=0)
     except ImportError:
         print('Error Importing Nominal Data')
-<<<<<<< HEAD
 
     features = dict()
     
@@ -19,5 +18,3 @@ def read_norm(data):
         features[feat] = feat_instance
         
     return features
-=======
->>>>>>> b11bbe07cf9b6d1fc474793626ecfc913f8f788e
