@@ -1,6 +1,6 @@
 class Features:
     """
-    A class used to represent a feature. A feature represennts question asked in the
+    A class used to represent a feature. A feature represents question asked in the
     questionnaire.
     ...
     Attributes
@@ -22,10 +22,24 @@ class Features:
         the reliability of a feature given by entropy/ std_entropy
     weight : float
         the weight of a feature given by reliability/ total_reliability
+    distance : dictionary
+        the dictionary of distances between categories of a feature.
+        distance[cat1][cat2] represents distance between cat1 and cat2
+    category_order : dictionary
+        the dictionary from category index to category name
         
     """
     
     def __init__(self, name, feat_type):
+        """
+        Parameters
+        ----------
+        name : str
+            the name of the feature
+        feat_type : str
+            the type of feature: ordinal or nominal
+        """
+        
         self.name = name
         self.feat_type = feat_type
         self.num_cat = 0
