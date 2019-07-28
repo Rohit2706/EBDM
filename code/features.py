@@ -7,6 +7,6 @@ class Features:
         self.entropy = 0
         self.std_entropy = 0
         self.reliability = 0
-        self.weights = 0
+        self.weight = 0
         self.distance = dict()
         self.category_order = dict()
