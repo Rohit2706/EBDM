@@ -1,4 +1,25 @@
 def read_ord(data):
+    """
+    Reads the ordinal data from the data file and instantiate the Features and
+    Categories classes.
+
+    Parameters
+    ----------
+    data : str
+        The file location of the spreadsheet containing ordibnal categories in the format:
+        Feature  | Category1 | Category2 | Category3.........
+        ----------------------------------------------------
+        Feedback |   Poor    |    Good   |  Excellent
+                 '           '           '
+                 '           '           '
+                 
+    Returns
+    -------
+    features : dictionary
+        a dictionary of features with keys as feature name and values as objects of
+        feature class.
+    """
+    
     try:
         ordinal_categories = pd.read_csv(data,header=None,index_col=0)
     except ImportError:
