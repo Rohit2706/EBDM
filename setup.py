@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name = "EBDM-Rohit2706",
+    name = "EBDM",
     version = "1.0.0",
     author = "Rohit Jain",
     author_email = "rohitjain2706@gmail.com",
