@@ -14,7 +14,7 @@ class Categories:
         categories in case of ordinal features.
     prob : float
         the occurence probability of a category of a feature in a particular population
-    entropy : int
+    entropy : float
         the entropy of a category of a feature in a particular population given by
         entropy = -p * log(p) where p is the occurence probability
         
