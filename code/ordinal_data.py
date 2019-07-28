@@ -6,7 +6,7 @@ def read_ord(data):
     Parameters
     ----------
     data : str
-        The file location of the spreadsheet containing ordibnal categories in the format:
+        The file location of the spreadsheet containing ordinal categories in the format:
         Feature  | Category1 | Category2 | Category3.........
         ----------------------------------------------------
         Feedback |   Poor    |    Good   |  Excellent
