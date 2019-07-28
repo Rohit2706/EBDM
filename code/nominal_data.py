@@ -1,4 +1,25 @@
 def read_nom(data):
+    """
+    Reads the nominal data from the data file and instantiate the Features and
+    Categories classes.
+    
+    Parameters
+    ----------
+    data : str
+        The file location of the spreadsheet containing nominal categories in the format:
+        Feature  | Category1 | Category2 | Category3.........
+        ----------------------------------------------------
+        Color    |    Red    |    Blue   |  Green
+                 '           '           '
+                 '           '           '
+                 
+    Returns
+    -------
+    features : dictionary
+        a dictionary of features with keys as feature name and values as objects of
+        feature class.
+    """
+    
     try:
         nominal_categories = pd.read_csv(data,header=None,index_col=0)
     except ImportError:
