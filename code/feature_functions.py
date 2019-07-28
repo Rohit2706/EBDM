@@ -9,8 +9,8 @@ def probability(df, features):
                  | Feedback  |  Color  |   Hooby   .........
         ----------------------------------------------------
         Person A |   Poor    |   Red   |  Football
-                 '           '           '
-                 '           '           '
+                 '           '         '
+                 '           '         '
     features : dictionary
         a dictionary of features with keys as feature name and values as objects of
         feature class.
