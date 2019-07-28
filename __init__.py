@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 """
-Created on Fri Jun 28 11:34:13 2019
+Created on Sun Jul 28 3:23:10 2019
 
 @author: Rohit Jain, Ishita Mediratta, Kartik Bhatia, Anmol Agarwal, Syed Ahsan Abbas, Nischit Soni
 
-This code is meant to calculate the entropy-based distances using both, 
+This code is meant to calculate the entropy-based distances using both 
 ordinal & nominal attributes.
 
 Source: Y. Zhang, Y. Cheung and K. C. Tan, "A Unified Entropy-Based 
