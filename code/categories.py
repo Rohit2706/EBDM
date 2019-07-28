@@ -34,4 +34,4 @@ class Categories:
         self.name = name
         self.index = index
         self.prob = 0
-        self.entopy = 0
+        self.entropy = 0
