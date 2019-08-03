@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Finding Features &#8212; EBDM  documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Storing for each category" href="categories.html" />
+    <link rel="prev" title="Reading Data" href="reading.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="categories.html" title="Storing for each category"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="reading.html" title="Reading Data"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">EBDM  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-features">
+<span id="finding-features"></span><h1>Finding Features<a class="headerlink" href="#module-features" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="features.Features">
+<em class="property">class </em><code class="sig-prename descclassname">features.</code><code class="sig-name descname">Features</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">feat_type</em><span class="sig-paren">)</span><a class="headerlink" href="#features.Features" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class used to represent a feature. A feature represents question asked in the
+questionnaire.
+…
+.. attribute:: name</p>
+<blockquote>
+<div><p>the name of the feature</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="attribute">
+<dt id="features.Features.feat_type">
+<code class="sig-name descname">feat_type</code><a class="headerlink" href="#features.Features.feat_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the type of feature: ordinal or nominal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="features.Features.num_cat">
+<code class="sig-name descname">num_cat</code><a class="headerlink" href="#features.Features.num_cat" title="Permalink to this definition">¶</a></dt>
+<dd><p>the number of categories for a feature in the questionnaire</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="features.Features.categories">
+<code class="sig-name descname">categories</code><a class="headerlink" href="#features.Features.categories" title="Permalink to this definition">¶</a></dt>
+<dd><p>a dictionary with keys as category name and values as objects of Categories class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="features.Features.entropy">
+<code class="sig-name descname">entropy</code><a class="headerlink" href="#features.Features.entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>the entropy of a feature in a particular population, given by
+entropy of feature = sum(entropy of categories)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="features.Features.std_entropy">
+<code class="sig-name descname">std_entropy</code><a class="headerlink" href="#features.Features.std_entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>the standard entropy of a feature given by log(num_cat)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="features.Features.reliability">
+<code class="sig-name descname">reliability</code><a class="headerlink" href="#features.Features.reliability" title="Permalink to this definition">¶</a></dt>
+<dd><p>the reliability of a feature given by entropy/ std_entropy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="features.Features.weight">
+<code class="sig-name descname">weight</code><a class="headerlink" href="#features.Features.weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>the weight of a feature given by reliability/ total_reliability</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="features.Features.distance">
+<code class="sig-name descname">distance</code><a class="headerlink" href="#features.Features.distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>the dictionary of distances between categories of a feature.
+distance[cat1][cat2] represents distance between cat1 and cat2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="features.Features.category_order">
+<code class="sig-name descname">category_order</code><a class="headerlink" href="#features.Features.category_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>the dictionary from category index to category name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="module-feature_functions">
+<span id="calculating-occurence-probability"></span><h2>Calculating Occurence Probability<a class="headerlink" href="#module-feature_functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="feature_functions.probability">
+<code class="sig-prename descclassname">feature_functions.</code><code class="sig-name descname">probability</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">features</em><span class="sig-paren">)</span><a class="headerlink" href="#feature_functions.probability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the occurence probability of all the categories for every feature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>panda dataframe</em>) – the dataset of the population</p></li>
+<li><p><strong>features</strong> (<em>dictionary</em>) – a dictionary of features with keys as feature name and values as objects of
+feature class.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>features</strong> – a dictionary of features with keys as feature name and values as objects of
+feature class with updated probability values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-feature_functions">
+<span id="calculating-entropies"></span><h2>Calculating Entropies<a class="headerlink" href="#module-feature_functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="feature_functions.entropy">
+<code class="sig-prename descclassname">feature_functions.</code><code class="sig-name descname">entropy</code><span class="sig-paren">(</span><em class="sig-param">features</em><span class="sig-paren">)</span><a class="headerlink" href="#feature_functions.entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the entropy of all the categories for every feature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>features</strong> (<em>dictionary</em>) – a dictionary of features with keys as feature name and values as objects of
+feature class.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>features</strong> – a dictionary of features with keys as feature name and values as objects of
+feature class with updated entropy values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="feature_functions.std_entropy">
+<code class="sig-prename descclassname">feature_functions.</code><code class="sig-name descname">std_entropy</code><span class="sig-paren">(</span><em class="sig-param">features</em><span class="sig-paren">)</span><a class="headerlink" href="#feature_functions.std_entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the standard entropy of all the features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>features</strong> (<em>dictionary</em>) – a dictionary of features with keys as feature name and values as objects of
+feature class.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>features</strong> – a dictionary of features with keys as feature name and values as objects of
+feature class with updated standard entropy values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="feature_functions.feature_entropy">
+<code class="sig-prename descclassname">feature_functions.</code><code class="sig-name descname">feature_entropy</code><span class="sig-paren">(</span><em class="sig-param">features</em><span class="sig-paren">)</span><a class="headerlink" href="#feature_functions.feature_entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the entropy of all the features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>features</strong> (<em>dictionary</em>) – a dictionary of features with keys as feature name and values as objects of
+feature class.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>features</strong> – a dictionary of features with keys as feature name and values as objects of
+feature class with updated feature entropy values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-feature_functions">
+<span id="calculating-reliability"></span><h2>Calculating Reliability<a class="headerlink" href="#module-feature_functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="feature_functions.reliability">
+<code class="sig-prename descclassname">feature_functions.</code><code class="sig-name descname">reliability</code><span class="sig-paren">(</span><em class="sig-param">features</em><span class="sig-paren">)</span><a class="headerlink" href="#feature_functions.reliability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the reliability of all the features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>features</strong> (<em>dictionary</em>) – a dictionary of features with keys as feature name and values as objects of
+feature class.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>features</strong> – a dictionary of features with keys as feature name and values as objects of
+feature class with updated reliability values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="feature_functions.total_reliability">
+<code class="sig-prename descclassname">feature_functions.</code><code class="sig-name descname">total_reliability</code><span class="sig-paren">(</span><em class="sig-param">features</em><span class="sig-paren">)</span><a class="headerlink" href="#feature_functions.total_reliability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the total reliability of the features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>features</strong> (<em>dictionary</em>) – a dictionary of features with keys as feature name and values as objects of
+feature class.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>total_rel</strong> – the total reliability of the features</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-feature_functions">
+<span id="calculating-weights"></span><h2>Calculating Weights<a class="headerlink" href="#module-feature_functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="feature_functions.weights">
+<code class="sig-prename descclassname">feature_functions.</code><code class="sig-name descname">weights</code><span class="sig-paren">(</span><em class="sig-param">features</em>, <em class="sig-param">total_reliability</em><span class="sig-paren">)</span><a class="headerlink" href="#feature_functions.weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the weights of all the features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>features</strong> (<em>dictionary</em>) – a dictionary of features with keys as feature name and values as objects of
+feature class.</p></li>
+<li><p><strong>total_reliability</strong> (<em>float</em>) – the total reliability of the features</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>features</strong> – a dictionary of features with keys as feature name and values as objects of
+feature class with updated weight values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Finding Features</a><ul>
+<li><a class="reference internal" href="#module-feature_functions">Calculating Occurence Probability</a></li>
+<li><a class="reference internal" href="#module-feature_functions">Calculating Entropies</a></li>
+<li><a class="reference internal" href="#module-feature_functions">Calculating Reliability</a></li>
+<li><a class="reference internal" href="#module-feature_functions">Calculating Weights</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="reading.html"
+                        title="previous chapter">Reading Data</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="categories.html"
+                        title="next chapter">Storing for each category</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/features.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="categories.html" title="Storing for each category"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="reading.html" title="Reading Data"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">EBDM  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Rohit Jain, Ishita Mediratta.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

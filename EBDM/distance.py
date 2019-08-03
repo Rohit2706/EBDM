@@ -6,13 +6,13 @@ def distance_between_categories(features):
     ----------
     features : dictionary
         a dictionary of features with keys as feature name and values as objects of
-        feature class.
+        feature class
      
     Returns
     -------
     features : dictionary
         a dictionary of features with keys as feature name and values as objects of
-        feature class with updated distance values.
+        feature class with updated distance values
     """
     
     for feat in features:
@@ -47,12 +47,11 @@ def distance_between_individuals(data, features):
     Parameters
     ----------
     df : panda dataframe
-        The dataset of the population in the format:
-                 | Feedback  |  Color  |   Hooby   .........
-        ----------------------------------------------------
+        the dataset of the population in the format:
+                 | Feedback  |  Color  |   Hobby  
+        ------------------------------------------
         Person A |   Poor    |   Red   |  Football
-                 '           '         '
-                 '           '         '
+                
     features : dictionary
         a dictionary of features with keys as feature name and values as objects of
         feature class.

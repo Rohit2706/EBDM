@@ -5,12 +5,8 @@ def probability(df, features):
     Parameters
     ----------
     df : panda dataframe
-        The dataset of the population in the format:
-                 | Feedback  |  Color  |   Hooby   .........
-        ----------------------------------------------------
-        Person A |   Poor    |   Red   |  Football
-                 '           '         '
-                 '           '         '
+        the dataset of the population
+        
     features : dictionary
         a dictionary of features with keys as feature name and values as objects of
         feature class.

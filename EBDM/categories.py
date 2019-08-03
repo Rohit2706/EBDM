@@ -3,7 +3,6 @@ class Categories:
     A class used to represent a category of a feature. A category represents a 
     choice given in a question.
 
-    ...
 
     Attributes
     ----------
