@@ -25,13 +25,19 @@ Download the package using pip
 
 .. code-block:: shell
 
-	pip install ebdm
+	pip install EBDM
 
 In your source file, import the library and start using the functions step-by-step as mentioned in the below section
 
 .. code-block:: python
 	
-	import ebdm
+	import EBDM as ebd
+
+For accessing modules, use 
+
+.. code-block:: python
+
+   ebd.<module_name>
 
 API Contents
 ------------

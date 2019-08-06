@@ -43,8 +43,69 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-features">
-<span id="finding-features"></span><h1>Finding Features<a class="headerlink" href="#module-features" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="finding-features">
+<h1>Finding Features<a class="headerlink" href="#finding-features" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># features_dict is the dictionary obtained after reading nominal and/or ordinal data</span>
+
+<span class="kn">from</span> <span class="nn">EBDM</span> <span class="kn">import</span> <span class="n">feature_functions</span>
+
+<span class="n">feat_std_entropy</span> <span class="o">=</span> <span class="n">std_entropy</span><span class="p">(</span><span class="n">features_dict</span><span class="p">)</span>
+<span class="n">feat_entropy</span> <span class="o">=</span> <span class="n">feature_entropy</span><span class="p">(</span><span class="n">feat_std_entropy</span><span class="p">)</span>
+<span class="n">feat_rel</span> <span class="o">=</span> <span class="n">reliability</span><span class="p">(</span><span class="n">feat_entropy</span><span class="p">)</span>
+<span class="n">total_rel</span> <span class="o">=</span> <span class="n">total_reliability</span><span class="p">(</span><span class="n">feat_rel</span><span class="p">)</span>
+<span class="n">features_dict_weighted</span> <span class="o">=</span> <span class="n">weights</span><span class="p">(</span><span class="n">feat_rel</span><span class="p">,</span> <span class="n">total_rel</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">features_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;name:&#39;</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;type:&#39;</span><span class="p">,</span><span class="n">features_dict</span><span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="o">.</span><span class="n">feat_type</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;num_cat:&#39;</span><span class="p">,</span><span class="n">features_dict</span><span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="o">.</span><span class="n">num_cat</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">cat</span> <span class="ow">in</span> <span class="n">features_dict</span><span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="o">.</span><span class="n">categories</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;    index:&#39;</span><span class="p">,</span><span class="n">features_dict</span><span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="o">.</span><span class="n">categories</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;    name:&#39;</span><span class="p">,</span><span class="n">features_dict</span><span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="o">.</span><span class="n">categories</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output will be</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>name: You often feel that your life is aimless, with no definite purpose
+type: ordinal
+num_cat: 5
+entropy: 1.4702489763160878
+std_entropy: 1.6094379124341003
+reliability: 0.9135170514856927
+
+    index: 0
+    name: Strong Disagree
+    prob: 0.13008130081300814
+    entropy: 0.26531325309042425
+
+    index: 1
+    name: Disagree
+    prob: 0.3902439024390244
+    entropy: 0.3672130124739616
+
+    index: 2
+    name: Neither
+    prob: 0.21951219512195122
+    entropy: 0.33285676595884867
+
+    index: 3
+    name: Agree
+    prob: 0.18699186991869918
+    entropy: 0.3135274244487411
+
+    index: 4
+    name: Strong Agree
+    prob: 0.07317073170731707
+    entropy: 0.19133852034411206
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-features">
+<span id="features-class"></span><h2>Features Class<a class="headerlink" href="#module-features" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="features.Features">
 <em class="property">class </em><code class="sig-prename descclassname">features.</code><code class="sig-name descname">Features</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">feat_type</em><span class="sig-paren">)</span><a class="headerlink" href="#features.Features" title="Permalink to this definition">¶</a></dt>
@@ -163,6 +224,7 @@ distance[cat1][cat2] represents distance between cat1 and cat2</p>
 
 </dd></dl>
 
+</div>
 <div class="section" id="module-feature_functions">
 <span id="calculating-occurence-probability"></span><h2>Calculating Occurence Probability<a class="headerlink" href="#module-feature_functions" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
@@ -324,6 +386,8 @@ feature class with updated weight values.</p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Finding Features</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#module-features">Features Class</a></li>
 <li><a class="reference internal" href="#module-feature_functions">Calculating Occurence Probability</a></li>
 <li><a class="reference internal" href="#module-feature_functions">Calculating Entropies</a></li>
 <li><a class="reference internal" href="#module-feature_functions">Calculating Reliability</a></li>
