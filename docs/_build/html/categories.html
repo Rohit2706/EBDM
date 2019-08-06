@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Storing for each category &#8212; EBDM  documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Calculating Distances" href="distance.html" />
+    <link rel="prev" title="Finding Features" href="features.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="distance.html" title="Calculating Distances"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="features.html" title="Finding Features"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">EBDM  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="storing-for-each-category">
+<h1>Storing for each category<a class="headerlink" href="#storing-for-each-category" title="Permalink to this headline">¶</a></h1>
+<p>Categories is a class, where each object has the following attributes</p>
+<span class="target" id="module-categories"></span><dl class="class">
+<dt id="categories.Categories">
+<em class="property">class </em><code class="sig-prename descclassname">categories.</code><code class="sig-name descname">Categories</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">index</em><span class="sig-paren">)</span><a class="headerlink" href="#categories.Categories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class used to represent a category of a feature. A category represents a
+choice given in a question.</p>
+<dl class="attribute">
+<dt id="categories.Categories.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#categories.Categories.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>the name of the category</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="categories.Categories.index">
+<code class="sig-name descname">index</code><a class="headerlink" href="#categories.Categories.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>the index is used to identify the categories. It preserves the order of the
+categories in case of ordinal features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="categories.Categories.prob">
+<code class="sig-name descname">prob</code><a class="headerlink" href="#categories.Categories.prob" title="Permalink to this definition">¶</a></dt>
+<dd><p>the occurence probability of a category of a feature in a particular population</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="categories.Categories.entropy">
+<code class="sig-name descname">entropy</code><a class="headerlink" href="#categories.Categories.entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>the entropy of a category of a feature in a particular population given by
+entropy = -p * log(p) where p is the occurence probability</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="features.html"
+                        title="previous chapter">Finding Features</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="distance.html"
+                        title="next chapter">Calculating Distances</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/categories.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="distance.html" title="Calculating Distances"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="features.html" title="Finding Features"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">EBDM  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Rohit Jain, Ishita Mediratta.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>
