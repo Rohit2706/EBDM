@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: EBDM
+Version: 1.0.0
+Summary: Entropy Based Distance Metric
+Home-page: https://github.com/Rohit2706/EBDM
+Author: Rohit Jain
+Author-email: rohitjain2706@gmail.com
+License: UNKNOWN
+Description: # Python package for Entropy-Based Distance Metric 
+        
+        To run the documentation website, open <code>docs/_build/html/index.html</code>
+        
+        *If you're making changes to the source code, make sure that you compile a clean build in the shell using*
+        <code>make clean; make html</code>
+        
+Keywords: entropy questionnnaire distance
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown

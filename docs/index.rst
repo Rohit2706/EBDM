@@ -21,12 +21,6 @@ Before getting started, make sure that you have the following libraries already 
 Quick Install
 -------------
 
-Download the package using pip
-
-.. code-block:: shell
-
-	pip install EBDM
-
 In your source file, import the library and start using the functions step-by-step as mentioned in the below section
 
 .. code-block:: python
