@@ -5,7 +5,7 @@ Summary: Entropy Based Distance Metric
 Home-page: https://github.com/Rohit2706/EBDM
 Author: Rohit Jain
 Author-email: rohitjain2706@gmail.com
-License: UNKNOWN
+License: MIT License
 Description: # Python package for Entropy-Based Distance Metric 
         
         To run the documentation website, open <code>docs/_build/html/index.html</code>
