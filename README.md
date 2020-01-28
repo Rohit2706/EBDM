@@ -62,7 +62,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Sincere thanks to Mr. Rintu Kutum and the AyurGenomics Group for guiding us throughout our internship period at the CSIR-IGIB, New Delhi.
+* Sincere thanks to Dr. Mitali Mukerjee, Dr. Bhavana Prasher, Mr. Rintu Kutum and the AyurGenomics Group for guiding us throughout our internship period at the CSIR-IGIB, New Delhi.
 
 
 
