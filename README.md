@@ -2,14 +2,8 @@
 
 Python package for finding Entropy-Based Distance Metric. An implementation of the following paper:
 
-Y. Zhang, Y. Cheung and K. C. Tan, "A Unified Entropy-Based Distance Metric for Ordinal-and-Nominal-Attribute Data Clustering," in IEEE Transactions on Neural Networks and Learning Systems, vol. 31, no. 1, pp. 39-52, Jan. 2020.
+Y. Zhang, Y. Cheung and K. C. Tan, "[A Unified Entropy-Based Distance Metric for Ordinal-and-Nominal-Attribute Data Clustering](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8671525&isnumber=8949827)," in IEEE Transactions on Neural Networks and Learning Systems, vol. 31, no. 1, pp. 39-52, Jan. 2020.
 doi: 10.1109/TNNLS.2019.2899381
-
-## Abstract
-
-Ordinal data are common in many data mining and machine learning tasks. Compared to nominal data, the possible values (also called categories interchangeably) of an ordinal attribute are naturally ordered. Nevertheless, since the data values are not quantitative, the distance between two categories of an ordinal attribute is generally not well defined, which surely has a serious impact on the result of the quantitative analysis if an inappropriate distance metric is utilized. From the practical perspective, ordinal-and-nominal-attribute categorical data, i.e., categorical data associated with a mixture of nominal and ordinal attributes, is common, but the distance metric for such data has yet to be well explored in the literature. In this paper, within the framework of clustering analysis, we therefore first propose an entropy-based distance metric for ordinal attributes, which exploits the underlying order information among categories of an ordinal attribute for the distance measurement. Then, we generalize this distance metric and propose a unified one accordingly, which is applicable to ordinal-and-nominal-attribute categorical data. Compared with the existing metrics proposed for categorical data, the proposed metric is simple to use and nonparametric. More importantly, it reasonably exploits the underlying order information of ordinal attributes and statistical information of nominal attributes for distance measurement. Extensive experiments show that the proposed metric outperforms the existing counterparts on both the real and benchmark data sets.
-keywords: {Distance measurement;Clustering algorithms;Task analysis;Data analysis;Benchmark testing;Entropy;Categorical data;clustering algorithms;data analysis;distance metric;entropy;order information;ordinal attribute},
-URL: http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8671525&isnumber=8949827
 
 ## Getting Started
 
