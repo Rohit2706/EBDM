@@ -1,0 +1,104 @@
+program moduleDeclarations otherModules driverModule otherModules
+moduleDeclarations moduleDeclaration moduleDeclarations
+moduleDeclarations EPSILON
+moduleDeclaration DECLARE MODULE ID SEMICOL
+otherModules module otherModules
+otherModules EPSILON
+driverModule DRIVERDEF DRIVER PROGRAM DRIVERENDDEF moduleDef
+module DEF MODULE ID ENDDEF TAKES INPUT SQBO input_plist SQBC SEMICOL ret moduleDef
+ret RETURNS SQBO output_plist SQBC SEMICOL
+ret EPSILON
+input_plist ID COLON dataType input_plist_1
+input_plist_1 COMMA ID COLON dataType input_plist_1
+input_plist_1 EPSILON
+output_plist ID COLON type output_plist_1
+output_plist_1 COMMA ID COLON type output_plist_1
+output_plist_1 EPSILON
+dataType INTEGER 
+dataType REAL
+dataType BOOLEAN
+dataType ARRAY SQBO range_arrays SQBC OF type
+type INTEGER
+type REAL
+type BOOLEAN
+moduleDef START statements END
+statements statement statements
+statements EPSILON
+statement ioStmt
+statement simpleStmt
+statement declareStmt
+statement conditionalStmt
+statement iterativeStmt
+ioStmt GET_VALUE BO ID BC SEMICOL
+ioStmt PRINT BO var BC SEMICOL
+var var_id_num
+var boolConstt
+var_id_num ID whichId
+var_id_num NUM
+var_id_num RNUM
+boolConstt TRUE
+boolConstt FALSE
+whichId SQBO index SQBC
+whichId EPSILON
+simpleStmt assignmentStmt
+simpleStmt moduleReuseStmt
+assignmentStmt ID whichStmt
+whichStmt lvalueIDStmt
+whichStmt lvalueARRStmt
+lvalueIDStmt ASSIGNOP expression SEMICOL
+lvalueARRStmt SQBO index SQBC ASSIGNOP expression SEMICOL
+index NUM
+index ID
+moduleReuseStmt optional USE MODULE ID WITH PARAMETERS idList SEMICOL
+optional SQBO idList SQBC ASSIGNOP
+optional EPSILON
+idList ID idList_1
+idList_1 COMMA ID idList_1
+idList_1 EPSILON
+expression armOrbool
+expression U
+U MINUS U_1 
+U PLUS U_1
+U_1 BO arithmeticExpr BC
+U_1 var_id_num
+armOrbool AnyTerm N7
+N7 logicalOp AnyTerm N7
+N7 EPSILON
+AnyTerm arithmeticExpr N8
+AnyTerm boolConstt 
+N8 relationalOp arithmeticExpr 
+N8 EPSILON
+arithmeticExpr term arithmeticExpr_1
+arithmeticExpr_1 op1 term arithmeticExpr_1
+arithmeticExpr_1 EPSILON
+term factor term_1
+term_1 op2 factor term_1
+term_1 EPSILON
+factor BO armOrbool BC
+factor var_id_num
+op1 PLUS
+op1 MINUS
+op2 MUL
+op2 DIV
+logicalOp AND
+logicalOp OR
+relationalOp LT
+relationalOp LE
+relationalOp GT
+relationalOp GE
+relationalOp EQ
+relationalOp NE
+declareStmt DECLARE idList COLON dataType SEMICOL
+conditionalStmt SWITCH BO ID BC START caseStmt default END
+caseStmt CASE value COLON statements BREAK SEMICOL caseStmt_1
+caseStmt_1 CASE value COLON statements BREAK SEMICOL caseStmt_1
+caseStmt_1 EPSILON
+value NUM
+value TRUE
+value FALSE
+default DEFAULT COLON statements BREAK SEMICOL
+default EPSILON
+iterativeStmt FOR BO ID IN range BC START statements END
+iterativeStmt WHILE BO armOrbool BC START statements END
+range_arrays index RANGEOP index
+range NUM RANGEOP NUM
