@@ -1,6 +1,6 @@
 # EBDM 
 
-[![PyPI version fury.io](https://badge.fury.io/py/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
+[![PyPI version fury.io](https://badge.fury.io/py/ansicolortags.svg)](https://pypi.org/project/EBDM/)
 
 Python package for finding Entropy-Based Distance Metric. An implementation of the following paper:
 
