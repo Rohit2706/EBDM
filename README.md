@@ -22,7 +22,11 @@ import pandas as pd
 import math
 ```
 ### Installing
+```
+pip install EBDM
+```
 
+#### Importing in your project
 In your source file, import the library and start using the functions step-by-step as mentioned in the below section
 
 ```
