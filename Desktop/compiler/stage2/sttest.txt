@@ -1,0 +1,177 @@
+** Test case for symbol table (only): Variant of test case t5.txt including dynamic arrays - testcase not to be used for bound checking for dynamic arrays and code generation**
+**  emphasis- width for static and dynamic array variables as parameters and as local variables**
+
+
+<<module var_demo_array>>
+takes input [x:integer, m:array [2..20] of integer, p:real, z1:array[low..high]of real];
+returns [ n:integer, k: boolean];
+start
+	declare a,b,h:integer;	
+	get_value(b);
+	declare p: array[2..20] of integer;	
+	a:= m[5]+3;				   **Not an error: array index within bounds**
+	p:= m;					   **Not an error: type expressions of array variables p and m are same and assignment is a valid operation**
+	k:=true;	
+	p:= m + p;                                 **ERROR: array variables m and p cannot be added**
+	p[10]:= a*b-20*h;                          **Not an error: array index within bounds**			 
+	while(k AND a<=m[11] OR false)
+	start
+		declare p, u:integer;
+		declare b: array[2..20] of integer;
+		b:= m;
+		b[2]:= u+m[25];			   **ERROR: element of array m is out of bound** 
+		a:= b[18]*18.56E+2;		   **ERROR: type mismatch **
+	end
+        n:= a - p*b;				   **ERROR: types of p and b are different**
+	b:= b+3;
+	k:= a>b OR b>100;
+	declare z2, z3: array[a..b] of integer;
+	declare x1:real;
+	print(k);	
+end
+
+
+<<module f1>>
+takes input[a: array[g1..g2] of integer, b:array[10..30] of integer, c:real];
+returns [m:boolean, n:integer];
+start
+	declare x,y, p: real;
+	declare k: integer;
+	get_value(y);
+	get_value(x);
+	declare A,B: array[4..10] of integer;
+	get_value(B);
+	declare D,C: array[10..30] of integer;
+	A:=B;
+	C:=a;
+	D:=C;					 
+	for (k in 15..40)
+	start
+		x:=x+k*y;				    **ERROR: Type mismatch error**
+		declare u, v:real;
+		u := y+c*34.2;
+		v:= u-c*p-20.5E+2;		 
+		switch(k)
+		start
+			case 10: declare A:real;
+				 declare Q: integer;
+				 declare B: array[10..30] of integer;
+				 declare E: array[4..10] of integer;
+				 B[9]:= k*20; 	              **ERROR: element of array B is out of bound**         	
+				 B:=C;           	      **not an error**
+				 E:= Q;                       **ERROR: variables E and Q are of different types	**	 
+				 break;
+			case 20: A:= 12.90 + u*y - c;         
+				 get_value(Q);
+				 declare F: array[h1..h2] of boolean;
+				 E[7]:= k+12 - Q*10+u;        **ERROR: Type mismatch error**    
+				 break;
+			default: E[9]:= B[15]+Q;	      **not an error**	       
+				 break;			 	
+		end
+		x:=x + u*v- u<=v;                             **ERROR: Type mismatch error**
+	end
+	x:=c+y;	
+	C[18]:= a[18]+ b[18];
+	A[5]:= B[6]- 10;
+	declare G:array[k1..k2] of real;
+	m:= A[5]< C[18] + A[11];			      **ERROR: element of array A is out of bound** 
+	n:= 20*8-5;	
+end
+
+
+
+<<<driver program>>>
+start
+	declare v_1_2_3, A:integer;
+	declare u1, k:boolean;
+        A:=12;
+	declare p: real;
+	p:= 23.56;
+	get_value(v_1_2_3);							 		
+	declare B, C: array [2..20] of integer;
+	declare L, H:integer;
+	declare M:array[L..H] of integer;
+	get_value(L);
+	get_value(H);
+	get_value(M);
+	[ v_1_2_3, u1]:=use module var_demo_array with parameters A,B,p,M;	**fourth parameter is a dynamic array**	
+	[ v_1_2_3, k]:=use module var_demo_array with parameters A,B,p,B;     	**fourth parameter is a static array**
+	declare a,b:integer;
+	a:= 5.89e-2;			        **ERROR: type mismatch error**
+	get_value(b);
+	declare value, q, r: real;
+	get_value(q);
+	r:= 23.67e+2;
+	value:= p+q*r-a*value; 			**ERROR: type mismatch error**
+	k:= true AND false OR q;		**ERROR: type mismatch error**
+	u1:= a<=b;
+	declare w: integer;			 
+	w:= 23+B[6];                                  
+	b:= a*25+100*C[1];		        **ERROR:element of array C is out of bound** 
+	declare D: array[20..40] of integer;			 
+	D:= value-q+r;				**ERROR: type mismatch error**
+	w:= w + 5;		 
+	B:= C;
+	C:= D;				        **ERROR: type mismatch error**        
+end
+
+**
+variable_name	scope(module_name)	scope(line_numbers)	width	isArray	static_or_dynamic	range_lexemes	type_of_element	offset	nesting_level
+x		var_demo_array		8-31			2	no	---			---		integer		0	0
+m		var_demo_array		8-31			5	yes	static			[2,20]		integer		2	0
+p		var_demo_array		8-31			4	no	---			---		real		7	0
+z1		var_demo_array		8-31			5	yes	dynamic			[low, high]	real		11	0
+n		var_demo_array		8-31			2	no	---			---		integer		16	0
+k		var_demo_array		8-31			1	no	---			---		boolean		18	0
+a		var_demo_array		8-31			2	no	---			---		integer		0	1
+b		var_demo_array		8-31			2	no	---			---		integer		2	1
+h		var_demo_array		8-31			2	no	---			---		integer		4	1
+p		var_demo_array		8-31			39	yes	static			[2,20]		integer		6	1
+p		var_demo_array		18-24			2	no	---			---		integer		45	2
+u		var_demo_array		18-24			2	no	---			---		integer		47	2
+b		var_demo_array		18-24			39	yes	static			[2,20]		integer		49	2
+z2		var_demo_array		8-31			1	yes	dynamic			[a,b]		integer		88	1
+z3		var_demo_array		8-31			1	yes	dynamic			[a,b]		integer		89	1
+x1		var_demo_array		8-31			4	no	---			---		integer		90	1
+a		f1			37-80			5	yes	dynamic			[g1,g2]		integer		0	0
+b		f1			37-80			5	yes	static			[10,30]		integer		5	0
+c		f1			37-80			4	no	---			---		real		10	0
+m		f1			37-80			1	no	---			---		boolean		14	0	
+n		f1			37-80			2	no	---			---		integer		15	0
+x		f1			37-80			4	no	---			---		real		0	1
+y		f1			37-80			4	no	---			---		real		4	1
+p		f1			37-80			4	no	---			---		real		8	1
+k		f1			37-80			2	no	---			---		integer		12	1
+A		f1			37-80			15	yes	static			[4,10]		integer		14	1
+B		f1			37-80			15	yes	static			[4,10]		integer		29	1
+D		f1			37-80			43	yes	static			[10,30]		integer		44	1
+C		f1			37-80			43	yes	static			[10,30]		integer		87	1
+u		f1			49-73			4	no	---			---		real		130	2
+v		f1			49-73			4	no	---			---		real		134	2
+A		f1			55-71			4	no	---			---		real		138	3
+Q		f1			55-71			2	no	---			---		integer		142	3
+B		f1			55-71			43	yes	static			[10,30]		integer		144	3
+E		f1			55-71			15	yes	static			[4,10]		integer		187	3
+F   		f1			55-71			1	yes	dynamic			[h1,h2]		boolean		202	3
+G		f1			37-80			1	yes	dynamic			[k1,k2]		real		203	1
+v_1_2_3		driver			85-117			2	no	---			---		integer		0	1
+A		driver			85-117			2	no	---			---		integer		2	1
+u1		driver			85-117			1	no	---			---		boolean		4	1
+k		driver			85-117			1	no	---			---		boolean		5	1
+p		driver			85-117			4	no	---			---		real		6	1
+B		driver			85-117			39	yes	static			[2,20]		integer		10	1
+C		driver			85-117			39	yes	static			[2,20]		integer		49	1
+L		driver			85-117			2	no	---			---		integer		88	1
+H		driver			85-117			2	no	---			---		integer		90	1
+M		driver			85-117			1	yes	dynamic			[L,H]		integer		92 	1
+a 		driver			85-117			2	no	---			---		integer		93	1
+b 		driver			85-117			2	no	---			---		integer		95	1
+value 		driver			85-117			4	no	---			---		real		97	1
+q 		driver			85-117			4	no	---			---		real		101	1
+r 		driver			85-117			4	no	---			---		real		105	1
+w 		driver			85-117			2	no	---			---		integer		109	1
+D		driver			85-117			43	yes	static			[20,40]		integer		111	1
+
+**
+

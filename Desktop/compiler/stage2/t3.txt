@@ -1,0 +1,4 @@
+<<<driver program>>>
+start
+	t:= 3+5;
+end

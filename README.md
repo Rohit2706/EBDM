@@ -1,5 +1,11 @@
 # EBDM 
 
+[![PyPI version](https://badge.fury.io/py/EBDM.svg)](https://badge.fury.io/py/EBDM)
+
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+
+
+
 Python package for finding Entropy-Based Distance Metric. An implementation of the following paper:
 
 Y. Zhang, Y. Cheung and K. C. Tan, "[A Unified Entropy-Based Distance Metric for Ordinal-and-Nominal-Attribute Data Clustering](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8671525&isnumber=8949827)," in IEEE Transactions on Neural Networks and Learning Systems, vol. 31, no. 1, pp. 39-52, Jan. 2020.
@@ -20,7 +26,11 @@ import pandas as pd
 import math
 ```
 ### Installing
+```
+pip install EBDM
+```
 
+#### Importing in your project
 In your source file, import the library and start using the functions step-by-step as mentioned in the below section
 
 ```

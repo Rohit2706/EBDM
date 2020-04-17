@@ -1,0 +1,11 @@
+<<<driver program>>>
+start
+declare num, k:integer;
+declare A:array [1..10] of integer;
+num:=5;
+for( k 1..10)      **Error 1**
+start
+A[k]:= 0;
+print(A[k])	   **Error 2**
+end
+end

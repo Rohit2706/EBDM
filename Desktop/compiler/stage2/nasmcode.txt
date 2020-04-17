@@ -1,0 +1,42 @@
+SECTION .text
+global _start
+
+function1:
+  STATEMENTS
+  RET
+.endfunction1:
+
+var_demo_array:
+  STATEMENTS
+  RET
+.endvar_demo_array:
+
+f1:
+  STATEMENTS
+  STATEMENTS
+switch1:
+  POP EX
+
+.case1:
+  POP AX
+  cmp EX, AX
+  JNE .case2
+  STATEMENTS
+  JMP .endswitch
+
+.case2:
+  POP AX
+  cmp EX, AX
+  JNE .case3
+  STATEMENTS
+  JMP .endswitch
+
+.case3:
+  STATEMENTS
+.endswitch:
+  RET
+.endf1:
+
+_start:
+  STATEMENTS
+
